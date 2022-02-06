@@ -1,7 +1,8 @@
+import { Product } from "./components/product";
 
 function App() {
   return (
-    <h1>TESTE</h1>
+    <Product />
   );
 }
 

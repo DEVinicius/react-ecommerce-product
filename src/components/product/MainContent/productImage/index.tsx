@@ -1,9 +1,9 @@
 import { Container } from "./style";
 
-export function Announcement() {
+export function ProductImage() {
     return (
         <Container>
-            qaweqwe
+            
         </Container>
     );
 }
