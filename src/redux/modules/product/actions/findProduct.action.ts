@@ -1,11 +1,12 @@
 import { ProductActions } from '../enum/actions.enum';
 import { IProduct } from './../dto/product.dto';
 
-export function insertProduct(product: IProduct) {
+export function findProduct(id: number) {
+    console.log(id);
     return {
-        type: ProductActions.FIND_PRODUCT,
+        type: "FIND_PRODUCT",
         payload: {
-            product
+            id
         }     
     }
 }
