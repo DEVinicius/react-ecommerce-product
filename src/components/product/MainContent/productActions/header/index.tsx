@@ -8,6 +8,10 @@ export function ProductHeader() {
     return (
         <Container>
             <h1>{product.product_name}</h1>
+            <aside>
+                <p>Marca: {product.brand.brand_name}</p>
+            </aside>
+            <hr />
         </Container>
     );
 }

@@ -13,7 +13,7 @@ export const product:Reducer<IProductState> = (state = INITIAL_STATE, action) =>
     return produce(state, draft => {
         switch(action.type) {
             case "FIND_PRODUCT":
-                const product = findProductReducer() as IProduct;
+                const product = findProductReducer(action.value) as IProduct;
                 return {
                     ...state,
                     product
