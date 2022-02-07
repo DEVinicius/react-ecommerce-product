@@ -8,6 +8,7 @@ export function findProductReducer(id: number) {
         },
         originalPrice: "125",
         promotionPrice: "150",
+        quantity: 5,
         shopkeeper: { 
             name: "Vinicius Pereira de Oliveira"
         }

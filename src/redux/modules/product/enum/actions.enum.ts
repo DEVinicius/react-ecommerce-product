@@ -1,3 +1,1 @@
-export enum ProductActions {
-    FIND_PRODUCT = "FIND_PRODUCT",
-}
+export const FIND_PRODUCT = "FIND_PRODUCT"

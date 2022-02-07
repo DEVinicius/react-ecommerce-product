@@ -4,6 +4,7 @@ export interface IProduct {
     id: number;
     product_name: string;
     brand: IBrand;
+    quantity: number;
     originalPrice: string;
     promotionPrice: string;
     shopkeeper: IShopkeeper;

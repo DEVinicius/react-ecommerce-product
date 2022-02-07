@@ -1,10 +1,8 @@
-import { ProductActions } from '../enum/actions.enum';
-import { IProduct } from './../dto/product.dto';
+import { FIND_PRODUCT } from './../enum/actions.enum';
 
 export function findProduct(id: number) {
-    console.log(id);
     return {
-        type: "FIND_PRODUCT",
+        type: FIND_PRODUCT,
         payload: {
             id
         }     
