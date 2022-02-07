@@ -1,9 +1,9 @@
 import { Container } from "./style";
 
-export function AddToChart() {
+export function MicroImagesSlider() {
     return (
         <Container>
-            Adicionar ao Carrinho
+            
         </Container>
-    )
+    );
 }
