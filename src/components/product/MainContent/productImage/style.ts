@@ -5,6 +5,8 @@ export const Container = styled.div`
     flex-direction: row;
 
     aside {
+        display: flex;
+        flex-direction: row;
         img {
             height: 25rem;
         }
