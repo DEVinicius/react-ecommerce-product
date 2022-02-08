@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Product } from "./components/product";
 import { findProduct } from "./redux/modules/product/actions/findProduct.action";
 import { useDispatch, useSelector } from 'react-redux';
 import { IStore } from "./redux";
 import { IProduct } from "./redux/modules/product/dto/product.dto";
+import { ProductFeature } from "./features/product";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function App() {
   }, [])
   return (
     <>
-      {Object.keys(product).length > 0 && <Product />}
+      {Object.keys(product).length > 0 && <ProductFeature />}
     </>
   );
 }
