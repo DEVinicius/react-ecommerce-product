@@ -3,8 +3,8 @@ import { IProductState } from "./../dto/productState.dto";
 import { IProduct } from "../dto/product.dto";
 import { Reducer } from "redux";
 import produce from "immer";
+import { findProductReducer } from "./requests/findProduct.reducer";
 
-import { findProductReducer } from "./findProduct.reducer";
 const INITIAL_STATE: IProductState = {
   product: {} as IProduct,
 };

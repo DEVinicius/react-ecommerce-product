@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IStore } from "./redux";
 import { IProduct } from "./redux/modules/product/dto/product.dto";
 import { ProductFeature } from "./features/product";
+import { FindProductAnnouncement } from "./redux/modules/productAnnouncement/actions/findProductAnnouncement.action";
 
 function App() {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(findProduct(1))
+    dispatch(FindProductAnnouncement());
   }, [])
   return (
     <>

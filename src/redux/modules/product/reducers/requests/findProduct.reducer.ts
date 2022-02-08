@@ -1,4 +1,4 @@
-import { IProduct } from './../dto/product.dto';
+import { IProduct } from './../../dto/product.dto';
 export function findProductReducer(id: number) {
     return { 
         id: 1,
