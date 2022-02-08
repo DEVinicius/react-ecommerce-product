@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { IStore } from "../../../../redux";
 import { IProductImages } from "../../../../redux/modules/product/dto/productImages.dto";
@@ -20,6 +21,18 @@ export function ProductImage() {
             <MicroImagesSlider 
                 chooseImage={handleChangeImage}
             />
+
+            <aside>
+                <button>
+                    <FiChevronLeft />
+                </button>
+
+                <img src={productImages[imageNumber].imageUrl} alt=""/>
+
+                <button>
+                    <FiChevronRight />
+                </button>
+            </aside>
         </Container>
     );
 }
