@@ -15,7 +15,7 @@ export function MicroImagesSlider({
         <Container>
             {
                 productImages.map(image => (
-                    <img src="" alt="" onClick={() => {
+                    <img src={image.imageUrl} key={image.id} alt="" onClick={() => {
                         chooseImage(image)
                     }}/>
                 ))
