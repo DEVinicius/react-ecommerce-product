@@ -8,7 +8,7 @@ interface MaskProps {
 
 const ZipCodeMask:React.FC<MaskProps> = ({value, onChange}) => {
     return (
-        <InputMask name="document" id="document" mask="99999-999" required placeholder="CEP" value = {value} onChange={onChange} />
+        <InputMask name="zipCode" id="zipCode" mask="99999-999" required placeholder="CEP" value = {value} onChange={onChange} />
     );
 }
 

@@ -1,9 +1,10 @@
 import { IAddress } from "./../dto/Address.dto";
-import { LIST_ADDRESSES, SELECT_ADDRESS } from "./../enum/actions.enum";
+import { INSERT_ADDRESS, LIST_ADDRESSES, SELECT_ADDRESS } from "./../enum/actions.enum";
 import produce from "immer";
 import { Reducer } from "redux";
 import { IAddressState } from "./../dto/AddressState.dto";
 import { listAddressesRequest } from "./request/listAddresses.request";
+import { insertAddressRequest } from "./request/insertAddress.request";
 
 const INITIAL_STATE: IAddressState = {
   address: [],
@@ -35,6 +36,15 @@ export const address: Reducer<IAddressState> = (
         }
 
         draft.selectedAddress = selectedAddress;
+        break;
+      
+        case INSERT_ADDRESS:
+          const { address } = action.payload;
+          insertAddressRequest({
+            address
+          }).then(response => {
+            draft.address.push(response);
+          });          
         break;
     }
   });
