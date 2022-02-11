@@ -1,3 +1,4 @@
+import { IAddressState } from './modules/address/dto/AddressState.dto';
 import { ICartState } from './modules/cart/dto/ICartState.dto';
 import { IProductAnnouncementState } from './modules/productAnnouncement/dto/productAnnouncementState.dto';
 import { IProductState } from './modules/product/dto/productState.dto';
@@ -21,7 +22,8 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 export interface IStore {
     product: IProductState
     productAnnouncement: IProductAnnouncementState,
-    cart: ICartState
+    cart: ICartState,
+    address: IAddressState
 }
 
 const store = createStore(persistedReducer, composeWithDevTools());
