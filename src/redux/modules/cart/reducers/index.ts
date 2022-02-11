@@ -1,10 +1,11 @@
 import { ICouponDiscount } from './../dto/couponDiscount.dto';
-import { REMOVE_PRODUCT_TO_CART } from "./../enum/cartAction.enum";
+import { ADD_COUPON_DISCOUNT, REMOVE_PRODUCT_TO_CART } from "./../enum/cartAction.enum";
 import { ICartItem } from "./../dto/CartItem.dto";
 import { produce } from "immer";
 import { ICartState } from "./../dto/ICartState.dto";
 import { Reducer } from "redux";
 import { INSERT_PRODUCT_TO_CART } from "../enum/cartAction.enum";
+import { searchCouponDiscount } from './requests/searchCouponDiscount.request';
 
 const INITIAL_STATE: ICartState = {
   cart: [],
@@ -40,6 +41,13 @@ export const cart: Reducer<ICartState> = (state = INITIAL_STATE, action) => {
         );
 
         draft.cart = removeProduct;
+        break;
+
+      case ADD_COUPON_DISCOUNT:
+        const { couponCode } = action.payload;
+        const couponDiscount = searchCouponDiscount(couponCode);
+
+        draft.couponDiscount = couponDiscount;
         break;
     }
   });
