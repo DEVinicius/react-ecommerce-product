@@ -19,17 +19,14 @@ export const product: Reducer<IProductState> = (
     switch (action.type) {
       case FIND_PRODUCT:
         const product = findProductReducer(action.value) as IProduct;
-        return {
-          ...state,
-          product,
-        };
+        draft.product = product
+        break;
 
       case FIND_PRODUCT_SAME_BRAND:
         const productsSameBrand = FindProductsSameBrandRequest(action.value);
-        return {
-          ...state, 
-          productsSameBrand
-        }
+        draft.productsSameBrand = productsSameBrand;
+
+        break;
     }
   });
 };

@@ -1,15 +1,24 @@
-import { useCallback } from "react";
+import { ChangeEvent, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { IStore } from "../../../../redux";
 import { IAddress } from "../../../../redux/modules/address/dto/Address.dto";
 import { Button } from "../../../../ui/button";
 import { Container } from "./style";
 
-export function SelectAddress() {
+interface ISelectAddress {
+  handleChangeAddressForm: () => void;
+
+}
+
+export function SelectAddress({
+    handleChangeAddressForm
+}:ISelectAddress) {
     
     const addresses = useSelector<IStore, IAddress[]>(state => state.address.address);
 
-    const handleSelectAddress = useCallback(async() => {}, []);
+    const handleSelectAddress = useCallback(async(event: ChangeEvent<any>) => {
+        console.log(event.target.value);
+    }, []);
     
     return (
         <Container>
@@ -17,7 +26,7 @@ export function SelectAddress() {
                 {
                     addresses.map(address => (
                         <label htmlFor="">
-                            <input type="radio" name="address" id="" value={address.id}/>
+                            <input type="radio" onChange={handleSelectAddress}  name="address" id="" value={address.id}/>
                             <section>
                                 <h4>{address.address}, {address.identifier}</h4>
                                 <p>
@@ -34,12 +43,23 @@ export function SelectAddress() {
                 }
             </main>
             <Button
-                handleClick={handleSelectAddress}
+                handleClick={async() => {}}
                 height="3rem"
                 width="15rem"
             >
                 <p>
                     Continuar Comprando
+                </p>
+            </Button>
+            <Button
+                handleClick={async() => {
+                    handleChangeAddressForm()
+                }}
+                height="3rem"
+                width="15rem"
+            >
+                <p>
+                    Adicionar novo Endereço
                 </p>
             </Button>
         </Container>

@@ -7,25 +7,36 @@ import { SelectAddress } from "./selectAddress";
 import { Container } from "./style";
 
 export function ShippingAddress() {
-    const [isAddressFormActive, setIsAddressFormActive] = useState<boolean>(true);
-    
-    const addresses = useSelector<IStore, IAddress[]>(state => state.address.address);
+  const [isAddressFormActive, setIsAddressFormActive] = useState<boolean>(true);
 
-    const changeAddressFormStatus = useCallback(async() => {
-        if(addresses.length > 0) {
-            setIsAddressFormActive(false);
-        }
-    }, [setIsAddressFormActive, addresses]);
+  const addresses = useSelector<IStore, IAddress[]>(
+    (state) => state.address.address
+  );
 
-    useEffect(() => {
-        changeAddressFormStatus();
-    }, []);
-    
-    return (
-        <Container>
-            {
-                isAddressFormActive ? <AddressForm /> : <SelectAddress />
-            }
-        </Container>
-    );
+  const changeAddressFormStatus = useCallback(async () => {
+    if (addresses.length > 0) {
+      setIsAddressFormActive(false);
+    }
+  }, [setIsAddressFormActive, addresses]);
+
+  const handleChangeAddressFormStatus = useCallback(() => {
+      console.log(!isAddressFormActive);
+    setIsAddressFormActive(!isAddressFormActive);
+  }, [setIsAddressFormActive, isAddressFormActive]);
+
+  useEffect(() => {
+    changeAddressFormStatus();
+  }, []);
+
+  return (
+    <Container>
+      {isAddressFormActive ? (
+        <AddressForm handleChangeAddressForm={handleChangeAddressFormStatus} />
+      ) : (
+        <SelectAddress
+          handleChangeAddressForm={handleChangeAddressFormStatus}
+        />
+      )}
+    </Container>
+  );
 }

@@ -1,5 +1,5 @@
-import { Field, Form, Formik } from "formik";
-import { ChangeEvent, useCallback, useState } from "react";
+import { Formik } from "formik";
+import { ChangeEvent, useCallback} from "react";
 import { useDispatch } from "react-redux";
 import { InsertAddress } from "../../../../redux/modules/address/actions/insertAddress.action";
 import { IAddress } from "../../../../redux/modules/address/dto/Address.dto";
@@ -8,7 +8,13 @@ import { Button } from "../../../../ui/button";
 import ZipCodeMask from "../../../../ui/kit/ZipCodeMask";
 import { Container } from "./style";
 
-export function AddressForm() {
+interface IAddressForm {
+  handleChangeAddressForm: () => void;
+}
+
+export function AddressForm({
+  handleChangeAddressForm
+}:IAddressForm) {
   const dispatch = useDispatch();
 
   const handleSearchZipCode = useCallback(async(zipCode: string):Promise<IAddress | void> => {
@@ -41,6 +47,7 @@ export function AddressForm() {
             dispatch(InsertAddress({
               address: values as IAddress
             }))
+            handleChangeAddressForm()
           } catch (error) {
             
           }
@@ -79,6 +86,15 @@ export function AddressForm() {
               <input type="text" name="complement" value={props.values.complement} placeholder="Complemento" onChange={props.handleChange}/>
             </section>
             
+            <Button
+              handleClick={async() => {
+                handleChangeAddressForm()
+              }}
+              height="3rem"
+              width="10rem"
+            >
+              <p>Voltar</p>
+            </Button>
             <input type="submit" value="Adicionar Endereço" />
           </form>
         )}

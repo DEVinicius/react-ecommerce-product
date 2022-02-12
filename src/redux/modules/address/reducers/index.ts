@@ -40,11 +40,12 @@ export const address: Reducer<IAddressState> = (
       
         case INSERT_ADDRESS:
           const { address } = action.payload;
-          insertAddressRequest({
+
+          const addressResult = insertAddressRequest({
             address
-          }).then(response => {
-            draft.address.push(response);
-          });          
+          })
+
+          draft.address.push(addressResult);
         break;
     }
   });
