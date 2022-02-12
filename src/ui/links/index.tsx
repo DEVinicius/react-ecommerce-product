@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Container } from "./style";
 
 interface ILink{
@@ -9,9 +8,9 @@ interface ILink{
 export function UILink({url, title}:ILink){
     return(
         <Container>
-            <Link href={url}>
+            <a href={url}>
                 {title}
-            </Link>
+            </a>
         </Container>
         
     )

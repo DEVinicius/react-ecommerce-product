@@ -1,5 +1,4 @@
 import { Container } from "./style";
-import Link  from 'next/link';
 
 interface IIcons{
     icon:React.ReactNode;
@@ -13,9 +12,9 @@ interface IIcons{
 export function Icons({url, icon, color}:IIcons){
     return (
         <Container color={color}>
-            <Link href={url}>
+            <a href={url}>
                 {icon}
-            </Link>
+            </a>
         </Container>
     )
 }

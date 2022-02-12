@@ -6,11 +6,6 @@ export function ListCategory(){
     return(
         <Container>
             <Category/>
-            <Category/>
-            <Category/>
-            <Category/>
-            <Category/>
-            <Category/>
         </Container>
     )
     
