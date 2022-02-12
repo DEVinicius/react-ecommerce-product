@@ -5,10 +5,10 @@ export const Container = styled.button`
     height: 3rem;
     width: 10rem;
 
-    background: ${colors.primary};
+    background: ${colors.background};
     transition: 0.5s;
 
-    color: ${colors.white};
+    color: ${colors.black};
 
     border: none;
     border-radius: 0.25rem;

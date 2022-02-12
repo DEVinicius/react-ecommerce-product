@@ -8,7 +8,7 @@ export const Container = styled.button`
     background: ${colors.primary};
     transition: 0.5s;
 
-    color: ${colors.white};
+    color: ${colors.black};
 
     border: none;
     border-radius: 0.25rem;
